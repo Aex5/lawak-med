@@ -2,9 +2,11 @@ import { useState } from "react";
 
 export default function Register() {
   const [fields, setFields] = useState({ email: "", password: "" });
+  const [loading, setLoading] = useState("");
 
   async function submitHandler(e) {
     e.preventDefault();
+    setLoading("loading...");
 
     const registerReq = await fetch("/api/auth/register", {
       method: "POST",
@@ -12,8 +14,12 @@ export default function Register() {
       headers: { "Content-Type": "application/json" },
     });
 
-    console.log(registerReq.body);
+    if (!registerReq.ok)
+      return setLoading(`failed to register ${registerReq.status}`);
+
     const registerRes = await registerReq.json();
+
+    setLoading(`register succsessfully`);
   }
 
   function fieldsHandler(e) {
@@ -43,6 +49,7 @@ export default function Register() {
           />
           <br />
           <button type="submit">register</button>
+          <p>{loading}</p>
         </form>
       </div>
     </>
