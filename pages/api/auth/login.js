@@ -27,5 +27,5 @@ export default async function handler(req, res) {
   );
 
   res.status(200);
-  res.json({ message: "login succsessfully" });
+  res.json({ message: "login succsessfully", token: token });
 }
