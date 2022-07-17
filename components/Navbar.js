@@ -18,7 +18,7 @@ export default function Nav() {
             className={
               !nav
                 ? "hidden"
-                : "fixed w-[200px] h-screen flex flex-col items-center justify-center right-0 bg-slate-300 "
+                : "fixed w-[200px] h-full flex flex-col items-center justify-center right-0 border-2 bg-white"
             }
           >
             {/* menu */}
