@@ -11,17 +11,16 @@ export default function Nav() {
 
   return (
     <div>
-      <div className="w-full text-slate-600">
-        <div className="">
+      <div className="w-full h-20 text-slate-600">
+        <div>
           {/* mobile mneu */}
           <div
             className={
               !nav
                 ? "hidden"
-                : "fixed w-[200px] h-screen flex flex-col items-center justify-start right-0 bg-slate-300 "
+                : "fixed w-[200px] h-screen flex flex-col items-center justify-center right-0 bg-slate-300 "
             }
           >
-            <h3 className="text-4xl py-20">App</h3>
             {/* menu */}
             <div>
               <div className="flex flex-col gap-3">
@@ -32,8 +31,11 @@ export default function Nav() {
             </div>
             <div></div>
           </div>
-          <div className="absolute right-0 top-5 px-4">
-            <button onClick={handlerNav} className="text-xl">
+          <div className="absolute right-0 top-5 px-6">
+            <button
+              onClick={handlerNav}
+              className="text-xl border-2 h-8 w-8 rounded-lg flex items-center justify-center"
+            >
               {nav ? <RiCloseLine /> : <RiMenu4Fill />}
             </button>
           </div>
