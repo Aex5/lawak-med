@@ -1,5 +1,6 @@
 import { RiMenu4Fill, RiCloseLine } from "react-icons/ri";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Nav() {
   const [nav, setNav] = useState(false);
@@ -23,14 +24,11 @@ export default function Nav() {
             <h3 className="text-4xl py-20">App</h3>
             {/* menu */}
             <div>
-              <ul className="flex flex-col gap-3">
-                <li>
-                  <a href="/">Posts</a>
-                </li>
-                <li>
-                  <a href="/">profile</a>
-                </li>
-              </ul>
+              <div className="flex flex-col gap-3">
+                <Link href="/posts">
+                  <a>posts</a>
+                </Link>
+              </div>
             </div>
             <div></div>
           </div>
