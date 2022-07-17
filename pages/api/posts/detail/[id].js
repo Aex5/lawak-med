@@ -9,5 +9,5 @@ export default async function handler(req, res) {
   if (!detailPost) return res.status(404).end();
 
   res.status(200);
-  res.json({ message: "halaman detail", detail: detailPost });
+  res.json({ message: "halaman detail", data: detailPost });
 }

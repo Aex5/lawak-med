@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Router from "next/router";
 
 export async function getServerSideProps(ctx) {
   const postReq = await fetch("http://localhost:3000/api/posts", {
@@ -33,15 +34,20 @@ export default function Posts(props) {
     }
   }
 
+  function handlerEdit(id) {
+    Router.push("/posts/edit/" + id);
+  }
+
   return (
     <>
-      <div>
+      <div className="">
         <h1>Posts</h1>
         {postState.map((post) => {
           return (
             <div key={post.id}>
               <h2>{post.title}</h2>
               <p>{post.content}</p>
+              <button onClick={handlerEdit.bind(this, post.id)}>edit</button>
               <button onClick={handlerDelete.bind(this, post.id)}>hapus</button>
             </div>
           );
