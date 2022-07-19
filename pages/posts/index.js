@@ -9,7 +9,7 @@ export async function getServerSideProps(ctx) {
   });
 
   const posts = await postReq.json();
-  console.log(posts);
+  console.log();
 
   return { props: { posts: posts.data } };
 }
