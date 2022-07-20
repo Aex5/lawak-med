@@ -59,7 +59,7 @@ export default function Login() {
               <p>
                 Not
                 <Link href="/auth/register">
-                  <a className="text-blue-600 font-semibold"> Sign Up </a>
+                  <a className="text-blue-600 "> Sign Up </a>
                 </Link>
                 yet ?
               </p>

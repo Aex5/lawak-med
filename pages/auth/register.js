@@ -58,7 +58,7 @@ export default function Register() {
               <p>
                 Already
                 <Link href="/auth/login">
-                  <a className="text-blue-600 font-semibold"> Sign In </a>
+                  <a className="text-blue-600 "> Sign In </a>
                 </Link>
                 ?
               </p>
