@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Register() {
   const [fields, setFields] = useState({ email: "", password: "" });
@@ -31,26 +32,46 @@ export default function Register() {
 
   return (
     <>
-      <div>
-        <h1>register</h1>
-        <form onSubmit={submitHandler}>
-          <input
-            type="email"
-            name="email"
-            placeholder="email"
-            onChange={fieldsHandler}
-          />
-          <br />
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            onChange={fieldsHandler}
-          />
-          <br />
-          <button type="submit">register</button>
-          <p>{loading}</p>
-        </form>
+      <div className="w-full h-screen mt-20">
+        <div className=" flex items-center flex-col gap-10">
+          <h1 className="text-2xl font-semibold text-gray-600">Register</h1>
+          <form
+            onSubmit={submitHandler}
+            className="w-[300px] flex flex-col justify-center items-center gap-3"
+          >
+            <input
+              type="email"
+              name="email"
+              placeholder="email"
+              onChange={fieldsHandler}
+              className="w-[250px] h-10 p-2 border-b-[1px] border-gray-400"
+            />
+
+            <input
+              type="password"
+              name="password"
+              placeholder="password"
+              onChange={fieldsHandler}
+              className="w-[250px] h-10 p-2 border-b-[1px] border-gray-400"
+            />
+            <div>
+              <p>
+                Already
+                <Link href="/auth/login">
+                  <a className="text-blue-600 font-semibold"> Sign In </a>
+                </Link>
+                ?
+              </p>
+            </div>
+            <button
+              type="submit"
+              className="w-[250px] py-2 rounded-xl bg-red-400 text-gray-50"
+            >
+              Sign Up
+            </button>
+            <p>{loading}</p>
+          </form>
+        </div>
       </div>
     </>
   );

@@ -9,7 +9,11 @@ export async function middleware(req) {
     }
   }
 
-  //  if (!token) {
-  //   return NextResponse.redirect("/auth/login");
-  // }
+  if (req.nextUrl.pathname.startsWith("/posts")) {
+    const token = await req.cookies.get("token");
+
+    if (!token) {
+      return NextResponse.redirect("http://localhost:3000/auth/login");
+    }
+  }
 }
