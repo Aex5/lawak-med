@@ -17,7 +17,7 @@ export default function editPost(props) {
   async function editHandler(e) {
     e.preventDefault();
 
-    const editReq = await fetch("/api/posts/edit/" + props.post.id, {
+    const editReq = await fetch("/api/posts/update/" + props.post.id, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(fields),
@@ -40,15 +40,19 @@ export default function editPost(props) {
 
   return (
     <>
-      <div>
-        <h1>edit post</h1>
-        <form onSubmit={editHandler}>
+      <div className="w-full h-screen flex flex-col items-center mt-20 gap-3">
+        <h1 className="text-xl font-semibold text-gray-600">Edit</h1>
+        <form
+          onSubmit={editHandler}
+          className="flex flex-col justify-start items-center w-[250px] h-[500px]"
+        >
           <input
             type="text"
             name="title"
             placeholder="title"
             onChange={fieldsHandler}
             defaultValue={props.post.title}
+            className="w-full p-2 border-[1px] shadow-md rounded-lg"
           />
           <br />
           <textarea
@@ -56,9 +60,15 @@ export default function editPost(props) {
             placeholder="content"
             onChange={fieldsHandler}
             defaultValue={props.post.content}
+            className="p-2 w-full h-[100px] border-[1px] shadow-md rounded-lg"
           ></textarea>
           <br />
-          <button type="submit">update</button>
+          <button
+            type="submit"
+            className="w-full py-2 bg-green-500 text-white rounded-lg"
+          >
+            update
+          </button>
         </form>
       </div>
     </>

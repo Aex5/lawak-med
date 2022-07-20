@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Router from "next/router";
 import Layout from "../../components/layout";
-import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlinePlus, AiTwotoneEdit } from "react-icons/ai";
+import { FaTrashAlt } from "react-icons/fa";
 
 export async function getServerSideProps(ctx) {
   const postReq = await fetch("http://localhost:3000/api/posts", {
@@ -65,13 +66,13 @@ export default function Posts(props) {
                 onClick={handlerEdit.bind(this, post.id)}
                 className="mr-1 px-4 py-1 rounded-md text-white bg-gray-400"
               >
-                Edit
+                <AiTwotoneEdit />
               </button>
               <button
                 onClick={handlerDelete.bind(this, post.id)}
                 className="px-4 py-1 rounded-md text-white bg-red-400"
               >
-                Hapus
+                <FaTrashAlt />
               </button>
             </div>
           );

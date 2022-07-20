@@ -24,8 +24,11 @@ export default function Nav() {
             {/* menu */}
             <div>
               <div className="flex flex-col gap-3">
+                <Link href="/">
+                  <a>Home</a>
+                </Link>
                 <Link href="/posts">
-                  <a>posts</a>
+                  <a>Notes</a>
                 </Link>
               </div>
             </div>
