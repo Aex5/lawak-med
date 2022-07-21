@@ -9,13 +9,14 @@ export default async function handler(req, res) {
 
   const checkUser = await db("users").where({ email: email }).first();
   if (!checkUser) {
-    return res.status(401);
+    return res.status(401).end();
   }
-
-  console.log(checkUser.id);
 
   //   untuk ngecheck password yang ada di database dengan password yang diinputkan sama atau tidak
   const checkPassword = await bcrypt.compare(password, checkUser.password);
+  if (!checkPassword) {
+    return res.status(401).end();
+  }
 
   const token = jwt.sign(
     {

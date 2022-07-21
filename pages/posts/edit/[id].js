@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Router from "next/router";
+import Layout from "../../../components/layout";
 
 export async function getServerSideProps(ctx) {
   const { id } = ctx.query;
@@ -39,7 +40,7 @@ export default function editPost(props) {
   }
 
   return (
-    <>
+    <Layout>
       <div className="w-full h-screen flex flex-col items-center mt-20 gap-3">
         <h1 className="text-xl font-semibold text-gray-600">Edit</h1>
         <form
@@ -71,6 +72,6 @@ export default function editPost(props) {
           </button>
         </form>
       </div>
-    </>
+    </Layout>
   );
 }
