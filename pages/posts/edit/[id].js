@@ -13,7 +13,10 @@ export async function getServerSideProps(ctx) {
 }
 
 export default function editPost(props) {
-  const [fields, setFields] = useState({ title: "", content: "" });
+  const [fields, setFields] = useState({
+    title: props.post.title,
+    content: props.post.content,
+  });
 
   async function editHandler(e) {
     e.preventDefault();

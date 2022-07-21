@@ -1,9 +1,16 @@
 import { RiMenu4Fill, RiCloseLine } from "react-icons/ri";
 import { useState } from "react";
 import Link from "next/link";
+import cookies from "js-cookie";
+import Router from "next/router";
 
 export default function Nav() {
   const [nav, setNav] = useState(false);
+
+  function deleteCookie() {
+    cookies.remove("token");
+    Router.push("/auth/login");
+  }
 
   function handlerNav() {
     setNav(!nav);
@@ -23,13 +30,19 @@ export default function Nav() {
           >
             {/* menu */}
             <div>
-              <div className="flex flex-col gap-3">
+              <div className="w-[150px] flex flex-col items-center gap-3">
                 <Link href="/">
                   <a>Home</a>
                 </Link>
                 <Link href="/posts">
                   <a>Notes</a>
                 </Link>
+                <button
+                  onClick={deleteCookie}
+                  className="w-full py-1 rounded-md bg-red-400 text-white"
+                >
+                  logout
+                </button>
               </div>
             </div>
             <div></div>

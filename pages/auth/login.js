@@ -68,7 +68,7 @@ export default function Login() {
               type="submit"
               className="w-[250px] py-2 rounded-xl bg-red-400 text-gray-50"
             >
-              Sign Up
+              Sign In
             </button>
           </form>
         </div>
